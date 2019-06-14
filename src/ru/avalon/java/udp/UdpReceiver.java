@@ -1,8 +1,7 @@
 package ru.avalon.java.udp;
 
-import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
+import java.io.*;
+import java.net.*;
 
 /**
  * Упражнение, на правленное на выработку умений, связанных с полученеим
@@ -35,26 +34,20 @@ public final class UdpReceiver {
      * @return двоичный массив.
      */
     private static byte[] prepareBuffer() {
-        /*
-         * TODO Реализовать метод prepareBuffer класса UdpReceiver
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return new byte[1024];
     }
 
     /**
      * Упаковывает переданный двоичный массив (буффер) в экземпляр
      * типа {@link DatagramPacket}.
      *
-     * @param buffer буффек, который будет использован пакетом для
+     * @param buffer буффер, который будет использован пакетом для
      *               хранения получаемых данных.
      *
      * @return экземпляр типа {@link DatagramPacket}.
      */
     private static DatagramPacket preparePacket(byte[] buffer) {
-        /*
-         * TODO Реализовать метод preparePacket класса UdpReceiver
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return new DatagramPacket(buffer, buffer.length);
     }
 
     /**
@@ -64,11 +57,8 @@ public final class UdpReceiver {
      *
      * @return сокет.
      */
-    private static DatagramSocket prepareSocket(int port) {
-        /*
-         * TODO Реализовать метод prepareSocket класса UdpReceiver
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+    private static DatagramSocket prepareSocket(int port) throws SocketException {
+        return new DatagramSocket(port);
     }
 
     /**
@@ -80,10 +70,6 @@ public final class UdpReceiver {
      * @return строковое сообщение.
      */
     private static String getMessage(DatagramPacket packet) {
-        /*
-         * TODO Реализовать метод getMessage класса UdpReceiver
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return new String(packet.getData(), 0, packet.getLength());
     }
-
 }
